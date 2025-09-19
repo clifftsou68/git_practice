@@ -1,0 +1,23 @@
+{
+  "cagr": 0.0,
+  "volatility": 0.0,
+  "sharpe": 0.0,
+  "sortino": 0.0,
+  "max_drawdown": 0.0,
+  "calmar": 0.0,
+  "hit_rate": 0.0,
+  "profit_factor": Infinity,
+  "expectancy": 0.0,
+  "avg_win": 0.0,
+  "avg_loss": 0.0,
+  "avg_hold_days": 0.0,
+  "turnover": 0,
+  "exposure": 0.0,
+  "num_trades": 0,
+  "best_month": 0.0,
+  "worst_month": 0.0,
+  "monthly_returns": {
+    "2024-01": 0.0,
+    "2024-02": 0.0
+  }
+}

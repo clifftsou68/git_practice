@@ -1,0 +1,67 @@
+{
+  "name": "Momentum Pullback with Risk Controls",
+  "universe": {
+    "region": "US",
+    "symbols": ["AAPL", "MSFT"],
+    "filters": {
+      "min_avg_dollar_volume": 10000000,
+      "price_between": [5, 1000]
+    }
+  },
+  "indicators": [
+    {
+      "name": "sma10",
+      "kind": "sma",
+      "inputs": ["close"],
+      "params": {"window": 10}
+    },
+    {
+      "name": "sma20",
+      "kind": "sma",
+      "inputs": ["close"],
+      "params": {"window": 20}
+    },
+    {
+      "name": "rsi14",
+      "kind": "rsi",
+      "inputs": ["close"],
+      "params": {"window": 14}
+    },
+    {
+      "name": "atr14",
+      "kind": "atr",
+      "inputs": ["high", "low", "close"],
+      "params": {"window": 14}
+    }
+  ],
+  "rules": {
+    "entry": "(sma10 > sma20) and (rsi14 < 60) and (close > sma10)",
+    "exit": ["close < sma20", "trailing_stop(atr14 * 2.5)"]
+  },
+  "sizing": {
+    "type": "vol_target",
+    "params": {
+      "risk_per_trade": 0.02,
+      "atr_multiple": 2.0
+    }
+  },
+  "portfolio": {
+    "max_positions": 5,
+    "max_gross_exposure": 1.0,
+    "max_position_pct": 0.2
+  },
+  "backtest": {
+    "frequency": "1D",
+    "start": "2024-01-02",
+    "end": "2024-02-14",
+    "slippage_bps": 5,
+    "commission_per_share": 0.005
+  },
+  "alerts": {
+    "check_interval_minutes": 15,
+    "channels": {
+      "desktop": true,
+      "email": {"enabled": false, "to": "me@example.com"}
+    }
+  }
+}
