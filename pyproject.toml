@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "quantdesk"
+version = "0.1.0"
+description = "Desktop market analysis and trade alert application"
+authors = ["AI Developer <ai@example.com>"]
+readme = "README.md"
+packages = [{ include = "app" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+
+[tool.poetry.scripts]
+quantdesk = "app.__main__:main"
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-q"
+python_files = "tests/**/*.py"
+
+[build-system]
+requires = ["poetry-core>=1.7.0"]
+build-backend = "poetry.core.masonry.api"

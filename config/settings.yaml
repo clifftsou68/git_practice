@@ -1,0 +1,19 @@
+{
+  "paths": {
+    "cache_dir": "./.cache",
+    "db_path": "./quantdesk.sqlite"
+  },
+  "market": {
+    "calendar": "XNYS",
+    "timezone": "America/New_York"
+  },
+  "alerts": {
+    "desktop_enabled": true,
+    "email_enabled": false,
+    "webhook_enabled": false
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "./quantdesk.log"
+  }
+}
